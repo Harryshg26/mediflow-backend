@@ -1,9 +1,12 @@
 {
   "outputDirectory": "dist/public",
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/boot.js"
+    { "source": "/api/(.*)", "destination": "/api/boot" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ],
+  "functions": {
+    "api/boot.js": {
+      "includeFiles": "dist/boot.js"
     }
-  ]
+  }
 }
